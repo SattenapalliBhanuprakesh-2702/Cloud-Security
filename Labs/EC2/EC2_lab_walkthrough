@@ -9,7 +9,7 @@ Got it! You want **everything broken down into clear numbered steps within each 
 ### **Task 1 — Launching the EC2 Web Server Instance**
 
 **Step 1:** Open **AWS Management Console → EC2 Dashboard** in **N. Virginia (us-east-1)** region.
-![Task 1  step 1 Screenshot](./images_EC2/Screenshot 2026-02-27 193720.png)
+![Task 1  step 1 Screenshot](./images_EC2/Lauch_instance.png)
 **Step 2:** Click **Launch Instance** to create a new EC2 instance.
 
 **Step 3:** Assign instance name: **Web Server** (creates a Name tag automatically).
