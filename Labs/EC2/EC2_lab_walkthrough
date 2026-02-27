@@ -1,0 +1,120 @@
+Got it! You want **everything broken down into clear numbered steps within each task**, so it’s **easy to paste screenshots under each step**. Here’s the **step-wise version** for all four tasks:
+
+---
+
+## **Amazon EC2 Hands-On Lab Documentation (Step-Wise with Numbered Steps)**
+
+---
+
+### **Task 1 — Launching the EC2 Web Server Instance**
+
+**Step 1:** Open **AWS Management Console → EC2 Dashboard** in **N. Virginia (us-east-1)** region.
+![Task 1  step 1 Screenshot](./images_EC2/Screenshot 2026-02-27 193720.png)
+**Step 2:** Click **Launch Instance** to create a new EC2 instance.
+
+**Step 3:** Assign instance name: **Web Server** (creates a Name tag automatically).
+
+**Step 4:** Select **Amazon Linux 2023 AMI** from Quick Start images.
+
+**Step 5:** Choose **t2.micro** as the instance type.
+
+**Step 6:** Select the existing key pair: **vockey** (used for login).
+
+**Step 7:** Configure network: select **Lab VPC** and **PublicSubnet1**, enable automatic public IP.
+
+**Step 8:** Create a new security group: **Web Server security group**. Remove default inbound rules.
+
+**Step 9:** Keep default storage: **8 GiB root EBS volume**.
+
+**Step 10:** Enable **Termination Protection** under advanced settings.
+
+**Step 11:** Add **User Data script** to install Apache and deploy a sample web page.
+
+**Step 12:** Click **Launch** and verify instance lifecycle: **Pending → Initializing → Running**.
+**Step 13:** Confirm **2/2 status checks passed**.
+
+---
+
+### **Task 2 — Monitoring the EC2 Instance**
+
+**Step 1:** Select the instance and open the **Status Checks** tab.
+
+**Step 2:** Confirm **System reachability** and **Instance reachability** passed.
+
+**Step 3:** Open the **Monitoring** tab to view CloudWatch metrics for CPU, network, and disk.
+
+**Step 4:** Access the **System Log** to verify the Apache web server installation.
+
+**Step 5:** Capture an **Instance Screenshot** to see the OS console view and verify instance boot status.
+
+---
+
+### **Task 3 — Configuring Security Group and Accessing the Web Server**
+
+**Step 1:** Copy the **Public IPv4 address** from the instance Details tab.
+
+**Step 2:** Open a browser and attempt to access the web server. Page does **not load**.
+
+**Step 3:** Identify the issue: **security group does not allow HTTP (port 80)**.
+
+**Step 4:** Navigate to **Security Groups → Web Server security group → Inbound rules → Edit inbound rules**.
+
+**Step 5:** Add a new rule:
+
+* **Type:** HTTP
+* **Source:** Anywhere (IPv4)
+
+**Step 6:** Save the rule.
+
+**Step 7:** Refresh the browser page.
+
+**Step 8:** Confirm access to the web server page:
+`Hello From Your Web Server!`
+
+---
+
+### **Task 4 — Resizing the EC2 Instance and Storage**
+
+#### **Step 1: Stop the Instance**
+
+1. Select the **Web Server** instance.
+2. Choose **Instance state → Stop instance**.
+3. Wait until **Instance state = Stopped**.
+
+#### **Step 2: Change Instance Type**
+
+1. Select the instance.
+2. Navigate to **Actions → Instance settings → Change instance type**.
+3. Change from **t2.micro → t2.small**.
+4. Enable **Stop Protection**.
+
+#### **Step 3: Resize EBS Volume**
+
+1. Go to **Storage tab → Click Volume ID → Select checkbox**.
+2. Choose **Actions → Modify volume**.
+3. Increase size from **8 GiB → 10 GiB**.
+4. Confirm modification.
+
+#### **Step 4: Start the Instance**
+
+1. Select instance.
+2. Choose **Instance state → Start instance**.
+3. Verify successful restart with updated compute and storage capacity.
+
+---
+
+### **Lab Outcome**
+
+1. Successfully deployed a functional EC2 web server.
+2. Automated configuration completed via User Data script.
+3. Security group updated to allow HTTP access.
+4. Monitored instance health using status checks, CloudWatch metrics, system logs, and screenshots.
+5. Scaled instance vertically: upgraded instance type and expanded root EBS volume.
+
+---
+
+This format is **perfect for screenshots**: each numbered step can have a **corresponding image**, making your GitHub/Medium post very clear.
+
+If you want, I can now **combine all tasks into a fully polished single Markdown document** ready to **publish with images**.
+
+Do you want me to do that next?
